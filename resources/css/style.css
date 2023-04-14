@@ -11,14 +11,20 @@ h1 {
   line-height: 0%;
 }
 
+main {
+  width: 100%
+}
+
 /*just for testing*/
 #testdiv {
   position: fixed;
-  top: 200px;
-  left: 400px;
   width: 800px;
   height: 600px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   background-color: white;
+  z-index: 1;
 }
 
 #game-container {
@@ -36,6 +42,7 @@ h1 {
 
 button {
   border-radius: 12px;
+  cursor: pointer;
 }
 
 #clear {
@@ -73,7 +80,6 @@ button.number-btn {
   gap: 100px;
   color: white;
   font-size: 8rem;
-  line-height: 12rem;
 }
 
 #problem-panel {
@@ -92,6 +98,12 @@ button.number-btn {
   width: 100%;
   padding-right: 1rem;
   box-sizing: border-box;
+}
+
+#problem,
+#input {
+  position: relative;
+  top: 1.5rem;
 }
 
 footer {

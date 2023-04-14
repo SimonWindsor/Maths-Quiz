@@ -6,8 +6,8 @@ let answerInput = '';
 const numberButtons = document.getElementsByClassName('number-btn');
 const enterButton = document.getElementById('enter');
 const clearButton = document.getElementById('clear');
-const problemPanel = document.getElementById('problem-panel');
-const inputPanel = document.getElementById('input-panel');
+const problemPanel = document.getElementById('problem');
+const inputPanel = document.getElementById('input');
 
 for(let i = 0; i < numberButtons.length; i++)
   numberButtons[i].addEventListener('click', numberInput);
