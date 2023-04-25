@@ -16,6 +16,8 @@ main {
   width: 100%;
 }
 
+
+
 /* Game Selector Styles */
 #game-selector {
   position: fixed;
@@ -28,6 +30,10 @@ main {
   border: 3px solid #446DF6;
   z-index: 1;
   text-align: center;
+}
+
+#game-selector.hide {
+  display: none;
 }
 
 #game-selector div {
@@ -45,10 +51,8 @@ main {
   width: 250px;
 }
 
-#game-selector input + label {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+#game-selector input[type="radio"] + label {
+  display: inline-block;
 }
 
 #game-selector input + label:hover {
@@ -64,7 +68,7 @@ main {
   opacity:0.5;
 }
 
-#game-selector input[type="submit"] {
+#go {
   height: 100px;
   width: 250px;
   background-color: green;
