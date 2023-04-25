@@ -4,35 +4,37 @@
     <title>Maths Quiz</title>
     <link href="./resources/css/style.css" rel="stylesheet" type="text/css">
   </head>
-  <body>
+  <body onload="uncheckAll()">
     <header>
       <h1>MATHS QUIZ</h1>
     </header>
     <main>
       <!-- For game setup -->
-      <div id="game-selector">
-        <form name="game-select">
-          <div id="game-mode">
-            <input type="radio" id="adding" name="game-mode" value="adding" />
-            <label for="adding"><img src="resources/images/plus.png" alt="plus" /></label>
-            <input type="radio" id="subtracting" name="game-mode" value="subtracting" />
-            <label for="subtracting"><img src="resources/images/minus.png" alt="take away" /></label>
-            <input type="radio" id="friends-of-ten" name="game-mode" value="friends-of-ten" />
-            <label for="friends-of-ten"><img src="resources/images/ten.png" alt="friends of ten" /></label>
-          </div>
-          <br>
-          <div id="difficulty-mode">
-            <input type="radio" id="easy" name="difficulty" value="easy" />
-            <label for="easy"><img src="resources/images/easy.png" alt="easy" /></label>
-            <input type="radio" id="medium" name="difficulty" value="medium" />
-            <label for="medium"><img src="resources/images/medium.png" alt="friends of ten" /></label>
-            <input type="radio" id="hard" name="difficulty" value="hard" />
-            <label for="hard"><img src="resources/images/hard.png" alt="friends of ten" /></label>
-          </div>
+      <div id="game-selector" class="popup">
+        <div id="game-mode">
+          <input type="radio" id="adding" name="game-mode" value="adding" />
+          <label for="adding"><img src="resources/images/plus.png" alt="plus" /></label>
+          <input type="radio" id="subtracting" name="game-mode" value="subtracting" />
+          <label for="subtracting"><img src="resources/images/minus.png" alt="take away" /></label>
+          <input type="radio" id="friends-of-ten" name="game-mode" value="friends-of-ten" />
+          <label for="friends-of-ten"><img src="resources/images/ten.png" alt="friends of ten" /></label>
+        </div>
+        <br>
+        <div id="difficulty-mode">
+          <input type="radio" id="easy" name="difficulty" value="easy" />
+          <label for="easy"><img src="resources/images/easy.png" alt="easy" /></label>
+          <input type="radio" id="medium" name="difficulty" value="medium" />
+          <label for="medium"><img src="resources/images/medium.png" alt="friends of ten" /></label>
+          <input type="radio" id="hard" name="difficulty" value="hard" />
+          <label for="hard"><img src="resources/images/hard.png" alt="friends of ten" /></label>
+        </div>
+        <input type="button" id="go-button" name="go" value="GO" />
+      </div>
 
-          <input type="button" id="go" name="go" value="GO" />
-        </form>
-      
+      <!-- For results after a game -->
+      <div id="results-container" class="popup hide">
+        <div id="results"><!-- Results go here --></div>
+        <button id="ok-button">OK</button>
       </div>
 
       <!-- For all the game controls and features -->

@@ -16,10 +16,9 @@ main {
   width: 100%;
 }
 
-
-
-/* Game Selector Styles */
-#game-selector {
+/* Game Selector and Results Panel Styles */
+/* Popup for game selector and results panels */
+.popup {
   position: fixed;
   width: 1000px;
   height: 700px;
@@ -32,7 +31,8 @@ main {
   text-align: center;
 }
 
-#game-selector.hide {
+/* For hiding game selector and results panels */
+.hide {
   display: none;
 }
 
@@ -52,7 +52,7 @@ main {
 }
 
 #game-selector input[type="radio"] + label {
-  display: inline-block;
+  cursor: pointer;
 }
 
 #game-selector input + label:hover {
@@ -68,7 +68,13 @@ main {
   opacity:0.5;
 }
 
-#go {
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+#go-button,
+#ok-button {
   height: 100px;
   width: 250px;
   background-color: green;
