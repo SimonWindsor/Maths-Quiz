@@ -3,6 +3,14 @@ let secondNumber;
 let maxNumber = 5;
 let mathProblem = '';
 let answerInput = '';
+let plus = false;
+let takeAway = false;
+let friendsOfTen = false;
+
+const plusSelect = document.getElementById('adding');
+const takeAwaySelect = document.getElementById('subtracting');
+const friendsOfTenSelect = document.getElementById('friends-of-ten');
+
 const numberButtons = document.getElementsByClassName('number-btn');
 const enterButton = document.getElementById('enter');
 const clearButton = document.getElementById('clear');
@@ -15,6 +23,11 @@ for(let i = 0; i < numberButtons.length; i++)
 clearButton.addEventListener('click', clearInput);
 
 enterButton.addEventListener('click', checkAnswer);
+
+// Creates a game on submission of "game-select" form
+function createGame() {
+  answerChecker = [];
+}
 
 function createProblem() {
   firstNumber = Math.floor(Math.random() * (maxNumber + 1));
@@ -36,6 +49,7 @@ function clearInput() {
 }
 
 function checkAnswer() {
+  // put code in to not excute if input it empty!!
   if(Number(answerInput) === firstNumber + secondNumber)
     alert('Well Done!');
   else

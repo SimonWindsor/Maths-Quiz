@@ -1,3 +1,4 @@
+/* Univeral Styles */
 body {
   background-color: #0A1247;
   font-size: 20px;
@@ -12,21 +13,66 @@ h1 {
 }
 
 main {
-  width: 100%
+  width: 100%;
 }
 
-/*just for testing*/
-#testdiv {
+/* Game Selector Styles */
+#game-selector {
   position: fixed;
-  width: 800px;
-  height: 600px;
+  width: 1000px;
+  height: 700px;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
+  top: 10rem;
+  transform: translateX(-50%);
+  background-color: #0A1247;
+  border: 3px solid #446DF6;
   z-index: 1;
+  text-align: center;
 }
 
+#game-selector div {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+#game-selector input[type="radio"] {
+  display: none;
+}
+
+#game-selector img {
+  height: 250px;
+  width: 250px;
+}
+
+#game-selector input + label {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#game-selector input + label:hover {
+  border: 3px solid #446DF6;
+}
+
+#game-selector input:checked + label {
+  border: 3px solid #446DF6;
+}
+
+#difficulty-mode .disabled {
+  pointer-events:none;
+  opacity:0.5;
+}
+
+#game-selector input[type="submit"] {
+  height: 100px;
+  width: 250px;
+  background-color: green;
+  font-size: 5rem;
+}
+
+
+/* Game and Game Control Styles */
 #game-container {
   display: grid;
   width: 1000px;
@@ -106,6 +152,9 @@ button.number-btn {
   top: 1.5rem;
 }
 
+/* Footer Styles */
 footer {
+  position: relative;
+  top: 200px;
   color: #446DF6;
 }

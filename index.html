@@ -9,9 +9,35 @@
       <h1>MATHS QUIZ</h1>
     </header>
     <main>
-      <!-- for testing, will later become game setup -->
-      <div id="testdiv"><button id="disappear">Disappear</button></div>
+      <!-- For game setup -->
+      <div id="game-selector">
+        <form name="game-select" onsubmit="createGame()">
+          <div id="game-mode">
+            <input type="radio" id="adding" name="game-mode" value="adding" />
+            <label for="adding"><img src="resources/images/plus.png" alt="plus" /></label>
+            <input type="radio" id="subtracting" name="game-mode" value="subtracting" />
+            <label for="adding"><img src="resources/images/minus.png" alt="take away" /></label>
+            <input type="radio" id="friends-of-ten" name="game-mode" value="friends-of-ten" />
+            <label for="adding"><img src="resources/images/ten.png" alt="friends of ten" /></label>
+          </div>
+          <br>
+          <div id="difficulty-mode">
+            <input type="radio" id="easy" name="difficulty" value="easy" />
+            <label for="easy"><img src="resources/images/easy.png" alt="easy" /></label>
+            <input type="radio" id="medium" name="difficulty" value="medium" />
+            <label for="medium"><img src="resources/images/medium.png" alt="friends of ten" /></label>
+            <input type="radio" id="hard" name="difficulty" value="hard" />
+            <label for="easy"><img src="resources/images/hard.png" alt="friends of ten" /></label>
+          </div>
+
+          <input type="submit" name="Go" value="GO" />
+        </form>
+      
+      </div>
+
+      <!-- For all the game controls and features -->
       <div id="game-container">
+        <!-- Makes a number pad -->
         <div id="button-pad">
           <button class="number-btn" id="7" value="7">7</button>
           <button class="number-btn" id="8" value="8">8</button>
@@ -26,6 +52,7 @@
           <button id="clear">CLEAR</button>
           <button id="enter">ENTER</button>
         </div>
+        <!-- For displaying maths problem and user input -->
         <div id="problem-and-input">
           <div id="problem-panel"><span id="problem"><!-- Where maths problem is displayed --></span></div>
           <div id="input-panel"><span id="input"><!-- Where number input is displayed --></span></div>
