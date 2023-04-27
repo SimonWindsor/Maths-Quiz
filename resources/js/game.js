@@ -6,6 +6,7 @@ let mathProblem = '';
 let answerInput = '';
 let totalQuestions = 0;
 let answerChecker = [];
+let questionLog = [];
 
 let plus = false;
 let takeAway = false;
@@ -51,12 +52,10 @@ clearButton.addEventListener('click', clearInput);
 enterButton.addEventListener('click', checkAnswer);
 
 function disableDifficulty(event) {
-  if(event.target.value === 'friends-of-ten') {
-    for(let i = 0; i < difficultyRadios.length; i++)
+  for(let i = 0; i < difficultyRadios.length; i++) {
+    if(event.target === friendsOfTenSelect)
       difficultyRadios[i].classList.add('disabled');
-  }
-  else {
-    for(let i = 0; i < difficultyRadios.length; i++)
+    else
       difficultyRadios[i].classList.remove('disabled');
   }
 }
@@ -66,20 +65,27 @@ function createGame() {
   gameSelector.classList.add('hide');
   totalQuestions = 0;
   answerChecker = [];
+  questionLog = [];
 
   // Determine game mode
   if(plusSelect.checked) {
     plus = true;
     takeAway = false;
     friendsOfTen = false;
+    problemPanel.style.fontSize = '8rem';
+    problemPanel.style.lineHeight = '12rem';
   } else if(takeAwaySelect.checked) {
     plus = false;
     takeAway = true;
     friendsOfTen = false;
+    problemPanel.style.fontSize = '8rem';
+    problemPanel.style.lineHeight = '12rem';
   } else if(friendsOfTenSelect.checked) {
     plus = false;
     takeAway = false;
     friendsOfTen = true;
+    problemPanel.style.fontSize = '7rem';
+    problemPanel.style.lineHeight = '10.5rem';
   }
 
   // Determine difficulty

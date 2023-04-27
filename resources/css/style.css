@@ -68,7 +68,7 @@ main {
   opacity:0.5;
 }
 
-.disabled {
+.disabled + label {
   pointer-events: none;
   opacity: 0.5;
 }
@@ -136,6 +136,7 @@ button.number-btn {
   gap: 100px;
   color: white;
   font-size: 8rem;
+  line-height: 12rem;
 }
 
 #problem-panel {
@@ -154,12 +155,6 @@ button.number-btn {
   width: 100%;
   padding-right: 1rem;
   box-sizing: border-box;
-}
-
-#problem,
-#input {
-  position: relative;
-  top: 1.5rem;
 }
 
 /* Footer Styles */
