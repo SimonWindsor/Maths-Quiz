@@ -157,6 +157,12 @@ button.number-btn {
   box-sizing: border-box;
 }
 
+#quit {
+  position: relative;
+  background-color: red;
+  font-size: 2rem;
+}
+
 /* Footer Styles */
 footer {
   position: relative;
