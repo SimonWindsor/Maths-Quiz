@@ -4,6 +4,7 @@
     <title>Maths Quiz</title>
     <link href="./resources/css/style.css" rel="stylesheet" type="text/css">
   </head>
+  <!-- Function called on load to have radios all unchecked by default -->
   <body onload="uncheckAll()">
     <header>
       <h1>MATHS QUIZ</h1>
@@ -11,6 +12,7 @@
     <main>
       <!-- For game setup -->
       <div id="game-selector" class="popup">
+        <!-- For game selection -->
         <div id="game-mode">
           <input type="radio" id="adding" name="game-mode" value="adding" />
           <label for="adding"><img src="resources/images/plus.png" alt="plus" /></label>
@@ -20,6 +22,7 @@
           <label for="friends-of-ten"><img src="resources/images/ten.png" alt="friends of ten" /></label>
         </div>
         <br>
+        <!-- For game difficulty -->
         <div id="difficulty-mode">
           <input type="radio" class="disabled" id="easy" name="difficulty" value="easy" />
           <label for="easy"><img src="resources/images/easy.png" alt="easy" /></label>
@@ -28,12 +31,26 @@
           <input type="radio" class="disabled" id="hard" name="difficulty" value="hard" />
           <label for="hard"><img src="resources/images/hard.png" alt="friends of ten" /></label>
         </div>
+        <!-- Begins game -->
         <button id="go-button">GO</button>
       </div>
 
       <!-- For results after a game -->
       <div id="results-container" class="popup hide">
-        <div id="results"><!-- Results go here --></div>
+        <div id="results"><!-- Results go here -->
+          <div class="question"></div>
+          <div class="question"></div>
+          <div class="question"></div>
+          <div class="question"></div>
+          <div class="question"></div>
+          <div class="question"></div>
+          <div class="question"></div>
+          <div class="question"></div>
+          <div class="question"></div>
+          <div class="question"></div>
+        </div>
+        <div id="score"><!-- Score goes here --></div>
+        <!-- Returns to game selection panel -->
         <button id="ok-button">OK</button>
       </div>
 
@@ -59,6 +76,7 @@
           <div id="problem-panel"><span id="problem"><!-- Where maths problem is displayed --></span></div>
           <div id="input-panel"><span id="input"><!-- Where number input is displayed --></span></div>
         </div>
+        <!-- Leaves current game -->
         <button id="quit">GO BACK</button>
       </div>
     </main>

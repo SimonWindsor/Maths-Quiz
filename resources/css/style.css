@@ -22,8 +22,8 @@ main {
   position: fixed;
   width: 1000px;
   height: 700px;
-  left: 50%;
   top: 10rem;
+  left: 50%;
   transform: translateX(-50%);
   background-color: #0A1247;
   border: 3px solid #446DF6;
@@ -79,6 +79,11 @@ main {
   width: 250px;
   background-color: green;
   font-size: 5rem;
+}
+
+#score {
+  color: white;
+  font-size: 4rem;
 }
 
 

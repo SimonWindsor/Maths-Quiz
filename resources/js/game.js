@@ -6,7 +6,8 @@ let minNumber;
 let maxNumber;
 let mathProblem = '';
 let answerInput = '';
-let totalQuestions = 0;
+let totalQuestions;
+let numCorrect;
 let answerChecker = [];
 let questionLog = [];
 
@@ -35,6 +36,7 @@ const difficultyRadios = document.getElementsByName('difficulty');
 //  For the screen displaying results
 const resultsPanel = document.getElementById('results-container');
 const results = document.getElementById('results');
+const score = document.getElementById('score');
 const okButton = document.getElementById('ok-button');
 
 // For game controls such as numeric buttons
@@ -82,7 +84,7 @@ function checkValidSetting() {
   else if(plusSelect.checked || takeAwaySelect.checked) {
     for(let i = 0; i < difficultyRadios.length; i++) {
       if(difficultyRadios[i].checked)
-      valid = true;
+        valid = true;
     }
   }
   if(valid)
@@ -95,10 +97,11 @@ function checkValidSetting() {
 function createGame() {
   gameSelector.classList.add('hide');
   totalQuestions = 0;
+  numCorrect = 0;
   answerChecker = [];
   questionLog = [];
 
-  // Determine game mode
+  // Determine game mode, font-size needs to be adjusted
   if(plusSelect.checked) {
     plus = true;
     takeAway = false;
@@ -187,6 +190,7 @@ function checkAnswer() {
   if(answerInput != '') {
     if(Number(answerInput) === correctAnswer) {
       correctSound.play();
+      numCorrect++;
       answerChecker.push(true);
     }
     else {
@@ -199,13 +203,20 @@ function checkAnswer() {
       createProblem();
     else
       showResults();
-  }
+  } else
+    errorSound.play();
 }
 
 // Displays game results after game
 function showResults() {
   resultsPanel.classList.remove('hide');
-  results.innerHTML = answerChecker;
+
+  // answerChecker.foreach(question => {
+  //   if(question === true)
+  //     numCorrect++;
+  // })
+  //results.innerHTML = answerChecker;
+  score.innerHTML = `${numCorrect}/10`;
 }
 
 // Returns to game selection after a game is finished or quit
