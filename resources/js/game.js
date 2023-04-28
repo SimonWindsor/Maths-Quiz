@@ -212,11 +212,13 @@ function checkAnswer() {
 
 // Displays game results after game
 function showResults() {
-  // Clears imgs from previous game
+  // Clears results imgs and score from previous game
   for(let i = 0; i < questions.length; i++)
     questions[i].innerHTML = '';
+  score.innerHTML = '';
   resultsPanel.classList.remove('hide');
   resultsSound.play();
+  // For using with the resultPing timing function below
   let i = 0;
 
   // Times the individual question results being diplayed
