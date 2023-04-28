@@ -212,19 +212,31 @@ function checkAnswer() {
 
 // Displays game results after game
 function showResults() {
+  // Clears imgs from previous game
+  for(let i = 0; i < questions.length; i++)
+    questions[i].innerHTML = '';
   resultsPanel.classList.remove('hide');
   resultsSound.play();
+  let i = 0;
 
-  for(let i = 0; i < answerChecker.length; i++) {
+  // Times the individual question results being diplayed
+  let resultPing = () => {
+    
     if(answerChecker[i])
       questions[i].innerHTML = '<img src="resources/images/correctemoji.png" />';
     else
       questions[i].innerHTML = '<img src="resources/images/incorrectemoji.png" />';
-    //pingSound.play();
+    i++;
+    if(i === answerChecker.length) {
+      score.innerHTML = `${numCorrect} / 10`;
+      pingSound.play();
+    }
+    if(i === answerChecker.length + 1)
+      clearInterval(resultPing);
   }
 
-  score.innerHTML = `${numCorrect} / 10`;
-  //pingSound.play();
+  // Calls the timer
+  ping = setInterval(resultPing, 600);
 }
 
 // Returns to game selection after a game is finished or quit
