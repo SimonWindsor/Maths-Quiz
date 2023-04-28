@@ -19,7 +19,9 @@ let friendsOfTen = false;
 // Creating audio for use during game
 const correctSound = new Audio("resources/audio/powerup.mp3");
 const incorrectSound = new Audio("resources/audio/lose.mp3");
-const errorSound = new Audio("resources/audio/error.mp3");;
+const errorSound = new Audio("resources/audio/error.mp3");
+const pingSound = new Audio("resources/audio/ping.mp3");
+const resultsSound = new Audio("resources/audio/results.mp3");
 
 // For game selection screen
 const gameSelector = document.getElementById('game-selector');
@@ -35,7 +37,7 @@ const difficultyRadios = document.getElementsByName('difficulty');
 
 //  For the screen displaying results
 const resultsPanel = document.getElementById('results-container');
-const results = document.getElementById('results');
+const questions = document.getElementsByClassName('question');
 const score = document.getElementById('score');
 const okButton = document.getElementById('ok-button');
 
@@ -173,6 +175,7 @@ function createProblem() {
 
 // Displays user input
 function numberInput(event) {
+  // If a user enters 0 as first number, no other numbers should be added
   zeroSelect = answerInput[0] === '0';
   if(!zeroSelect && answerInput.length < 8)
     answerInput = answerInput + event.target.value;
@@ -210,13 +213,18 @@ function checkAnswer() {
 // Displays game results after game
 function showResults() {
   resultsPanel.classList.remove('hide');
+  resultsSound.play();
 
-  // answerChecker.foreach(question => {
-  //   if(question === true)
-  //     numCorrect++;
-  // })
-  //results.innerHTML = answerChecker;
-  score.innerHTML = `${numCorrect}/10`;
+  for(let i = 0; i < answerChecker.length; i++) {
+    if(answerChecker[i])
+      questions[i].innerHTML = '<img src="resources/images/correctemoji.png" />';
+    else
+      questions[i].innerHTML = '<img src="resources/images/incorrectemoji.png" />';
+    //pingSound.play();
+  }
+
+  score.innerHTML = `${numCorrect} / 10`;
+  //pingSound.play();
 }
 
 // Returns to game selection after a game is finished or quit

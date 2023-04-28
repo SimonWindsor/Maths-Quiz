@@ -16,7 +16,17 @@ main {
   width: 100%;
 }
 
+button {
+  border-radius: 12px;
+  cursor: pointer;
+  /* Disable text selection in buttons for touch devices */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 /* Game Selector and Results Panel Styles */
+
 /* Popup for game selector and results panels */
 .popup {
   position: fixed;
@@ -81,9 +91,32 @@ main {
   font-size: 5rem;
 }
 
+#results-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+#results {
+  display: grid;
+  position: relative;
+  width: 80%;
+  left: -45px;
+  grid-template-columns: repeat(10, 10%);
+  gap: 10px;
+}
+
+#results img {
+  width: 100%;
+}
+
 #score {
   color: white;
-  font-size: 4rem;
+  font-size: 15rem;
 }
 
 
@@ -99,11 +132,6 @@ main {
 #button-pad {
   display: grid;
   grid-template: repeat(5, 100px) / repeat(3, 100px);
-}
-
-button {
-  border-radius: 12px;
-  cursor: pointer;
 }
 
 #clear {
@@ -163,7 +191,7 @@ button.number-btn {
 }
 
 #quit {
-  position: relative;
+  grid-column: 2;
   background-color: red;
   font-size: 2rem;
 }
@@ -171,6 +199,6 @@ button.number-btn {
 /* Footer Styles */
 footer {
   position: relative;
-  top: 200px;
+  top: 40px;
   color: #446DF6;
 }
