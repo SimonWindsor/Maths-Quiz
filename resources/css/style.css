@@ -82,7 +82,7 @@ button {
 
 @media screen and (max-width: 800px) {
   html {
-    font-size: 19px;  
+    font-size: 9px;  
   }
 }
 
@@ -178,8 +178,7 @@ button {
   opacity: 0.5;
 }
 
-#go-button,
-#ok-button {
+#go-button {
   height: 4rem;
   width: 10rem;
   margin-bottom: 10px;
@@ -189,28 +188,26 @@ button {
 }
 
 #results-container {
-  display: flex;
   /* Initially hidden until results are displayed */
   visibility: hidden;
+  box-sizing: border-box;
 }
 
 #results-display {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-  padding: 20px 0;
+  display: grid;
+  grid-template-rows: 4rem 14rem 6rem;
+  padding: 0.5rem 0;
   box-sizing: border-box;
 }
 
 #results {
+  justify-self: center;
   display: grid;
   position: relative;
-  width: 80%;
-  left: -45px;
-  grid-template-columns: repeat(10, 10%);
-  gap: 10px;
+  width: 95%;
+  height: 2rem;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 0.5rem;
 }
 
 #results img {
@@ -218,12 +215,24 @@ button {
 }
 
 #score {
+  justify-self: center;
+  display: flex;
+  align-items: center;
   color: white;
-  font-size: 15rem;
+  height: 14rem;
+  font-size: 10rem;
+}
+
+#ok-button {
+  justify-self: center;
+  height: 4rem;
+  width: 10rem;
+  background-color: green;
+  font-size: 3rem;
 }
 
 @media screen and (orientation: portrait) {
-  .popup{
+  .popup {
     width: 90%;
   }
   
@@ -244,11 +253,27 @@ button {
     width: 70%
   }
 
-  #go-button {
+  #go-button,
+  #ok-button {
     justify-self: center;
     height: 6rem;
     width: 14rem;
     font-size: 4rem;
+  }
+
+  #results-display {
+    grid-template-rows: 8rem 14rem 6rem;
+  }
+
+  #results {
+    height: 8rem;
+    grid-template-rows: repeat(2, 1 fr);
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  #score {
+    /* Make room for two rows of result images */
+    margin-top: 4rem;
   }
 }
 
@@ -403,4 +428,22 @@ footer a:hover {
   footer {
     font-size: 4rem;
   }
+}
+
+/* Credits Styles */
+#credits {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  background-color: #0A1247;
+  border: 3px solid #2e4cad;
+}
+
+a,
+a:visited {
+  color: #f3f3de;
+}
+
+a:hover {
+  color: #ffc7ff;
 }

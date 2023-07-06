@@ -223,22 +223,23 @@ function showResults() {
 
   // Times the individual question results being diplayed
   const resultPing = () => {
-    
-    if(answerChecker[i])
-      questions[i].innerHTML = '<img src="resources/images/correctemoji.png" />';
-    else
-      questions[i].innerHTML = '<img src="resources/images/incorrectemoji.png" />';
-    i++;
     if(i === answerChecker.length) {
       score.innerHTML = `${numCorrect} / 10`;
       pingSound.play();
+      clearInterval(ping);
+    } else {
+      if(answerChecker[i])
+        questions[i].innerHTML = '<img src="resources/images/correctemoji.png" />';
+      else
+        questions[i].innerHTML = '<img src="resources/images/incorrectemoji.png" />';
     }
-    if(i === answerChecker.length + 1)
-      clearInterval(resultPing);
+    i++;
   }
 
+  
+
   // Calls the timer
-  ping = setInterval(resultPing, 600);
+  const ping = setInterval(resultPing, 600);
 }
 
 // Returns to game selection after a game is finished or quit
