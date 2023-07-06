@@ -1,4 +1,4 @@
-// Variables for numbers, answers, answer checking and problem logging
+// Variables for numbers, answers, answer checking and problem logging HERE IS A SMALL IRRELEVENT CHANGE FOR TESTING
 let firstNumber;
 let secondNumber;
 let correctAnswer;
