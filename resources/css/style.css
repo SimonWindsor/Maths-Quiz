@@ -156,7 +156,8 @@ button {
 
 #game-selector input[type="radio"] + label {
   cursor: pointer;
-  width: 23%
+  width: 23%;
+  box-sizing: border-box;
 }
 
 #game-selector input + label:hover {
@@ -381,7 +382,25 @@ button.number-btn {
 footer {
   display: flex;
   margin-top: 1rem;
-  font-size: 15px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 1rem;
   justify-content: space-between;
-  color: #446DF6;
+  color: #f3f3de;
+  font-weight: 600;
+}
+
+footer a,
+footer a:visited {
+  color: #f3f3de;
+}
+
+footer a:hover {
+  color: #ffc7ff;
+}
+
+@media screen and (orientation: portrait) {
+  footer {
+    font-size: 2rem;
+  }
 }
