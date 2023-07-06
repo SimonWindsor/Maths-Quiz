@@ -222,7 +222,7 @@ button {
   font-size: 15rem;
 }
 
-@media screen and (max-width: 1200px) and (orientation: portrait) {
+@media screen and (orientation: portrait) {
   .popup{
     width: 90%;
   }
@@ -337,7 +337,7 @@ button.number-btn {
   font-size: 2rem;
 }
 
-@media screen and (max-width: 1200px) and (orientation: portrait) {
+@media screen and (orientation: portrait) {
   #game-container {
     width: 95%;
     grid-template-columns: 1fr;
@@ -363,18 +363,18 @@ button.number-btn {
 
   #button-pad {
     grid-area: b;
-    grid-template: repeat(5, 15rem) / repeat(3, 15rem);
+    grid-template: repeat(5, 18rem) / repeat(3, 18rem);
     justify-self: center;
   }
 
   #button-pad button {
-    font-size: 5rem;
+    font-size: 10rem;
   }
 
   #quit {
     grid-area: c;
-    height: 5rem;
-    font-size: 3rem;
+    height: 6rem;
+    font-size: 4rem;
   }
 }
 
@@ -401,6 +401,6 @@ footer a:hover {
 
 @media screen and (orientation: portrait) {
   footer {
-    font-size: 2rem;
+    font-size: 4rem;
   }
 }
