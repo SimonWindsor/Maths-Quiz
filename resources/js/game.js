@@ -41,7 +41,8 @@ const questions = document.getElementsByClassName('question');
 const score = document.getElementById('score');
 const okButton = document.getElementById('ok-button');
 
-// For game controls such as numeric buttons
+// For game controls such as numeric buttons and game container
+const gameContainer = document.getElementById('game-container');
 const numberButtons = document.getElementsByClassName('number-btn');
 const enterButton = document.getElementById('enter');
 const clearButton = document.getElementById('clear');
@@ -97,7 +98,8 @@ function checkValidSetting() {
 
 // Creates a game on submission of "game-select" form
 function createGame() {
-  gameSelector.classList.add('hide');
+  gameSelector.style.display = 'none';
+  gameContainer.style.display = 'grid';
   totalQuestions = 0;
   numCorrect = 0;
   answerChecker = [];
@@ -108,20 +110,17 @@ function createGame() {
     plus = true;
     takeAway = false;
     friendsOfTen = false;
-    problemPanel.style.fontSize = '8rem';
-    problemPanel.style.lineHeight = '12rem';
+    problemPanel.style.fontSize = '6rem';
   } else if(takeAwaySelect.checked) {
     plus = false;
     takeAway = true;
     friendsOfTen = false;
-    problemPanel.style.fontSize = '8rem';
-    problemPanel.style.lineHeight = '12rem';
+    problemPanel.style.fontSize = '6rem';
   } else if(friendsOfTenSelect.checked) {
     plus = false;
     takeAway = false;
     friendsOfTen = true;
-    problemPanel.style.fontSize = '7rem';
-    problemPanel.style.lineHeight = '10.5rem';
+    problemPanel.style.fontSize = '5rem';
   }
 
   // Determine difficulty
@@ -212,17 +211,18 @@ function checkAnswer() {
 
 // Displays game results after game
 function showResults() {
+  gameContainer.style.display = 'none';
   // Clears results imgs and score from previous game
   for(let i = 0; i < questions.length; i++)
     questions[i].innerHTML = '';
   score.innerHTML = '';
-  resultsPanel.classList.remove('hide');
+  resultsPanel.style.display = "block";
   resultsSound.play();
   // For using with the resultPing timing function below
   let i = 0;
 
   // Times the individual question results being diplayed
-  let resultPing = () => {
+  const resultPing = () => {
     
     if(answerChecker[i])
       questions[i].innerHTML = '<img src="resources/images/correctemoji.png" />';
@@ -243,8 +243,10 @@ function showResults() {
 
 // Returns to game selection after a game is finished or quit
 function restart() {
-  resultsPanel.classList.add('hide');
-  gameSelector.classList.remove('hide');
+  resultsPanel.style.display = 'none';
+  // To make game controls disappear when quit button ("GO BACK") is pressed
+  gameContainer.style.display = 'none';
+  gameSelector.style.display = 'block';
   for(let i = 0; i < difficultyRadios.length; i++)
     difficultyRadios[i].classList.add('disabled');
   uncheckAll();
