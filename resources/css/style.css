@@ -1,70 +1,126 @@
+/* Fonts */
+@font-face {
+  font-family: sister;
+  src: url(../fonts/Love_Ya_Like_A_Sister/LoveYaLikeASister-Regular.ttf);
+}
+
+@font-face {
+  font-family: sniglet;
+  src: url(../fonts/Sniglet/Sniglet-Regular.ttf);
+}
+
 /* Univeral Styles */
 html {
   font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
   color: black;
+  background-image: url(../images/background.jpg);
+  background-position: center;
+  background-size: cover;
 }
 
 body {
-  background-color: #0A1247;
-}
-
-@media screen and (max-width: 1400px) {
-  html {
-    font-size: 15px;  
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  html {
-    font-size: 12px;  
-  }
-}
-
-@media screen and (max-width: 800px) {
-  html {
-    font-size: 10px;  
-  }
-}
-
-@media screen and (max-width: 600px) {
-  html {
-    font-size: 8px;  
-  }
-}
-
-@media screen and (max-width: 400px) {
-  html {
-    font-size: 6px;  
-  }
+  position: absolute;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 18, 71, 80%);
+  background-size: cover;
 }
 
 h1 {
   color: #446DF6;
   margin: 0;
   text-align: center;
+  font-family: sister, Helvetica, sans-serif;
   font-size: 8rem;
 }
 
 main {
-  position: relative;
   width: 100%;
 }
 
 button {
-  border-radius: 12px;
+  border-radius: 0.6rem;
   cursor: pointer;
+  font-family: sniglet, Arial, sans-serif;
   /* Disable text selection in buttons for touch devices */
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
+@media screen and (max-width: 1600px) {
+  html {
+    font-size: 16px;  
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  html {
+    font-size: 14px;  
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 12px;  
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  html {
+    font-size: 11px;  
+  }
+}
+
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 10px;  
+  }
+}
+
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 19px;  
+  }
+}
+
+@media screen and (max-width: 700px) {
+  html {
+    font-size: 8px;  
+  }
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 7px;  
+  }
+}
+
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 6px;  
+  }
+}
+
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 5px;  
+  }
+}
+
+@media screen and (orientation: portrait) {
+  button {
+    border-radius: 1.5rem;
+  }
+}
+
 /* Game Selector and Results Panel Styles */
 
 /* Popup for game selector and results panels */
 .popup {
-  position: relative;
+  position: fixed;
   width: 50%;
   left: 50%;
   transform: translateX(-50%);
@@ -128,12 +184,13 @@ button {
   margin-bottom: 10px;
   background-color: green;
   font-size: 3rem;
-  grid-area: bt
+  grid-area: bt;
 }
 
 #results-container {
-  /* Initially no display but changed to block in game.js when game finishes */
-  display: none;
+  display: flex;
+  /* Initially hidden until results are displayed */
+  visibility: hidden;
 }
 
 #results-display {
@@ -164,7 +221,6 @@ button {
   font-size: 15rem;
 }
 
-/* WORKING ON*/
 @media screen and (max-width: 1200px) and (orientation: portrait) {
   .popup{
     width: 90%;
@@ -197,17 +253,18 @@ button {
 
 /* Game and Game Control Styles */
 #game-container {
-  /* Initially no display but changed to grid in game.js when game starts */
-  display: none;
-  width: 1000px;
-  grid-template-columns: 300px 600px;
-  gap: 100px;
+  display: grid;
+  width: 60%;
+  grid-template-columns: 2fr 3fr;
+  gap: 0.5rem;
   margin: auto;
+  /* Initially hidden until game starts */
+  visibility: hidden;
 }
 
 #button-pad {
   display: grid;
-  grid-template: repeat(5, 100px) / repeat(3, 100px);
+  grid-template: repeat(5, 5rem) / repeat(3, 5rem);
 }
 
 #clear {
@@ -231,7 +288,7 @@ button {
 }
 
 button.number-btn {
-  font-size: 2.5rem;
+  font-size: 3rem;
   background-color: #446DF6;
 }
 
@@ -241,22 +298,21 @@ button.number-btn {
 
 #problem-and-input {
   display: grid;
-  grid-template-rows: 200px;
-  gap: 100px;
+  max-width: 100%;
+  grid-template-rows: 33.3%;
+  gap: 33.3%;
   color: white;
-  font-size: 6rem;
 }
 
 #problem-panel {
   position: relative;
   display: flex;
+  background-color: #0A1247;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  height: 100%;
+  width: 100%;
   border: solid 3px white;
   box-sizing: border-box;
-  text-align: center;
 }
 
 #input-panel {
@@ -266,28 +322,66 @@ button.number-btn {
   justify-content: end;
   align-items: center;
   text-align: end;
-  height: 100%;
   width: 100%;
+  font-size: 7rem;
   padding-right: 1rem;
   box-sizing: border-box;
 }
 
-/* #problem,
-#input {
-  
-
-} */
-
 #quit {
   grid-column: 2;
+  width: 30%;
+  justify-self: end;
   background-color: red;
   font-size: 2rem;
 }
 
+@media screen and (max-width: 1200px) and (orientation: portrait) {
+  #game-container {
+    width: 95%;
+    grid-template-columns: 1fr;
+    grid-template-areas : "a"
+                          "b"
+                          "c";
+  }
+
+  #problem-and-input {
+    gap: 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-area: a;
+  }
+
+  #problem-panel {
+    height: 12rem;
+  }
+
+  #input-panel {
+    height: 12rem;
+    justify-content: center;
+  }
+
+  #button-pad {
+    grid-area: b;
+    grid-template: repeat(5, 15rem) / repeat(3, 15rem);
+    justify-self: center;
+  }
+
+  #button-pad button {
+    font-size: 5rem;
+  }
+
+  #quit {
+    grid-area: c;
+    height: 5rem;
+    font-size: 3rem;
+  }
+}
+
 /* Footer Styles */
 footer {
-  position: relative;
   display: flex;
+  margin-top: 1rem;
+  font-size: 15px;
   justify-content: space-between;
   color: #446DF6;
 }

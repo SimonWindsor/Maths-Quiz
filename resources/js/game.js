@@ -1,4 +1,4 @@
-// Variables for numbers, answers, answer checking and problem logging HERE IS A SMALL IRRELEVENT CHANGE FOR TESTING
+// Variables for numbers, answers, answer checking and problem logging
 let firstNumber;
 let secondNumber;
 let correctAnswer;
@@ -98,8 +98,8 @@ function checkValidSetting() {
 
 // Creates a game on submission of "game-select" form
 function createGame() {
-  gameSelector.style.display = 'none';
-  gameContainer.style.display = 'grid';
+  gameSelector.style.visibility = 'hidden';
+  gameContainer.style.visibility = 'visible';
   totalQuestions = 0;
   numCorrect = 0;
   answerChecker = [];
@@ -211,12 +211,12 @@ function checkAnswer() {
 
 // Displays game results after game
 function showResults() {
-  gameContainer.style.display = 'none';
+  gameContainer.style.visibility = 'hidden';
   // Clears results imgs and score from previous game
   for(let i = 0; i < questions.length; i++)
     questions[i].innerHTML = '';
   score.innerHTML = '';
-  resultsPanel.style.display = "block";
+  resultsPanel.style.visibility = 'visible';
   resultsSound.play();
   // For using with the resultPing timing function below
   let i = 0;
@@ -243,12 +243,15 @@ function showResults() {
 
 // Returns to game selection after a game is finished or quit
 function restart() {
-  resultsPanel.style.display = 'none';
+  resultsPanel.style.visibility = 'hidden';;
   // To make game controls disappear when quit button ("GO BACK") is pressed
-  gameContainer.style.display = 'none';
-  gameSelector.style.display = 'block';
+  gameContainer.style.visibility = 'hidden';
+  gameSelector.style.visibility = 'visible';
   for(let i = 0; i < difficultyRadios.length; i++)
     difficultyRadios[i].classList.add('disabled');
+  // Clear user input as to prevent it appearing in a new game
+  inputPanel.innerHTML = '';
+  answerInput = '';
   uncheckAll();
 }
 
