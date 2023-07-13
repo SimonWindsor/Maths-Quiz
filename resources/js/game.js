@@ -16,7 +16,7 @@ let plus = false;
 let takeAway = false;
 let friendsOfTen = false;
 
-// Creating audio for use during game
+// Audio variable sfor use during game
 const correctSound = new Audio("resources/audio/powerup.mp3");
 const incorrectSound = new Audio("resources/audio/lose.mp3");
 const errorSound = new Audio("resources/audio/error.mp3");
@@ -49,6 +49,18 @@ const clearButton = document.getElementById('clear');
 const problemPanel = document.getElementById('problem');
 const inputPanel = document.getElementById('input');
 const quitButton = document.getElementById('quit');
+
+// Open and close credits popup
+document.getElementById('open-credits').addEventListener('click', () => {
+  document.getElementById('credits').hidden = false;
+  document.querySelector('footer').style.display = 'none';
+  gameSelector.hidden = true;
+});
+document.getElementById('close-credits').addEventListener('click', () => {
+  document.getElementById('credits').hidden = true;
+  document.querySelector('footer').style.display = 'flex';
+  gameSelector.hidden = false;
+});
 
 // For to enable/disable difficulty selection depending on slected game mode
 for(let i = 0; i < gameRadios.length; i++) {
@@ -100,6 +112,8 @@ function checkValidSetting() {
 function createGame() {
   gameSelector.style.visibility = 'hidden';
   gameContainer.style.visibility = 'visible';
+  // Hide footer, as some devices it will show over buttons during game
+  document.querySelector('footer').style.display = 'none';
   totalQuestions = 0;
   numCorrect = 0;
   answerChecker = [];
@@ -218,9 +232,9 @@ function showResults() {
   score.innerHTML = '';
   resultsPanel.style.visibility = 'visible';
   resultsSound.play();
+  
   // For using with the resultPing timing function below
   let i = 0;
-
   // Times the individual question results being diplayed
   const resultPing = () => {
     if(i === answerChecker.length) {
@@ -236,8 +250,6 @@ function showResults() {
     i++;
   }
 
-  
-
   // Calls the timer
   const ping = setInterval(resultPing, 600);
 }
@@ -248,6 +260,8 @@ function restart() {
   // To make game controls disappear when quit button ("GO BACK") is pressed
   gameContainer.style.visibility = 'hidden';
   gameSelector.style.visibility = 'visible';
+  // Return footer to display
+  document.querySelector('footer').style.display = 'flex';
   for(let i = 0; i < difficultyRadios.length; i++)
     difficultyRadios[i].classList.add('disabled');
   // Clear user input as to prevent it appearing in a new game
