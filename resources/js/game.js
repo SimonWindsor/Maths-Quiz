@@ -73,12 +73,50 @@ okButton.addEventListener('click', restart);
 
 // Add event listener for all number buttons
 for(let i = 0; i < numberButtons.length; i++)
-  numberButtons[i].addEventListener('click', numberInput);
+  numberButtons[i].addEventListener('click', sendNumberButtonValue);
 
 // Add event listeners for enter, clear and quit buttons
 clearButton.addEventListener('click', clearInput);
 enterButton.addEventListener('click', checkAnswer);
 quitButton.addEventListener('click', restart);
+
+/* Add keyboard event listener. Depending on whether user is currently in a game,
+or in results or game selector screen, key events will change.*/
+document.addEventListener('keydown', event => {
+  const key = event.key;
+
+  /* Checks if game container is visible so the following logic ONLY happens
+  during game. Other wise, if game selector is visible the ENTER key will act as
+  the GO button. Or if results screen is visible, then it will act as OK button. */
+  if(gameContainer.style.visibility === 'visible') {
+    if(key === 'Enter') {
+      event.preventDefault();
+      checkAnswer();
+    } else if(key === 'Delete' || key === 'Backspace')
+      clearInput();
+    else if (key === '1'
+            || key == '2'
+            || key == '3'
+            || key == '4'
+            || key == '5'
+            || key == '6'
+            || key == '7'
+            || key == '8'
+            || key == '9'
+            || key == '0')
+      numberInput(key);
+  } else {
+    if(key === 'Enter') {
+      if(gameSelector.style.visibility === 'visible') {
+        event.preventDefault();
+        checkValidSetting();
+      } else if(resultsPanel.style.visibility === 'visible') {
+        event.preventDefault();
+        restart();
+      }
+    }
+  } 
+});
 
 // If friends of ten is selected, difficulty is disabled
 function disableDifficulty(event) {
@@ -108,7 +146,7 @@ function checkValidSetting() {
     errorSound.play();
 }
 
-// Creates a game on submission of "game-select" form
+// Creates a game on submission of "game-select" screen
 function createGame() {
   gameSelector.style.visibility = 'hidden';
   gameContainer.style.visibility = 'visible';
@@ -186,12 +224,19 @@ function createProblem() {
   problemPanel.innerHTML = mathProblem;
 }
 
-// Displays user input
-function numberInput(event) {
+/* Gets number button value if button is clicked. This is now used to the mouse
+events so numberInput() can handle with keyboard or mouse. When the mouse clicks
+a number button this will call numberInput */
+function sendNumberButtonValue(event) {
+  numberInput(event.target.value);
+}
+
+// Displays user input - updated to handle both mouse AND keyboard events
+function numberInput(number) {
   // If a user enters 0 as first number, no other numbers should be added
   zeroSelect = answerInput[0] === '0';
   if(!zeroSelect && answerInput.length < 8)
-    answerInput = answerInput + event.target.value;
+    answerInput = answerInput + number;
   inputPanel.innerHTML = answerInput;
 }
 
@@ -256,7 +301,7 @@ function showResults() {
 
 // Returns to game selection after a game is finished or quit
 function restart() {
-  resultsPanel.style.visibility = 'hidden';;
+  resultsPanel.style.visibility = 'hidden';
   // To make game controls disappear when quit button ("GO BACK") is pressed
   gameContainer.style.visibility = 'hidden';
   gameSelector.style.visibility = 'visible';
