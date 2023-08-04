@@ -298,7 +298,7 @@ a:hover,
 
   #results {
     height: 8rem;
-    grid-template-rows: repeat(2, 1 fr);
+    grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(5, 1fr);
   }
 
