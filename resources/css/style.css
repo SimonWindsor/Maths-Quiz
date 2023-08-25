@@ -48,6 +48,8 @@ button {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  /* Disable double-tap zoom for touch devices */
+  touch-action: manipulation;
 }
 
 @media screen and (max-width: 1600px) {
