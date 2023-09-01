@@ -13,7 +13,7 @@
 html {
   font-size: 20px;
   font-family: Arial, sans-serif;
-  color: black;
+  color: #000;
   background-image: url(../images/background.jpg);
   background-position: center;
   background-size: cover;
@@ -44,6 +44,7 @@ button {
   border-radius: 0.6rem;
   cursor: pointer;
   font-family: sniglet, Arial, sans-serif;
+  padding: 0;
   /* Disable text selection in buttons for touch devices */
   -webkit-user-select: none;
   -ms-user-select: none;
