@@ -45,7 +45,7 @@ button {
   border-radius: 0.6rem;
   cursor: pointer;
   font-family: sniglet, Arial, sans-serif;
-  color: #000000;
+  color: inherit;
   padding: 0;
   /* Disable text selection in buttons for touch devices */
   -webkit-user-select: none;
