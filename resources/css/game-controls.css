@@ -1,0 +1,140 @@
+/* Game and Game Control Styles */
+#game-container {
+  display: grid;
+  width: 60%;
+  grid-template-columns: 2fr 3fr;
+  gap: 0.5rem;
+  margin: auto;
+  /* Initially hidden until game starts */
+  visibility: hidden;
+}
+
+#button-pad {
+  display: grid;
+  grid-template: repeat(5, 5rem) / repeat(3, 5rem);
+}
+
+#clear {
+  grid-column-start: span 2;
+  font-size: 1.5rem;
+  background-color: red;
+}
+
+#clear:hover {
+  background-color: rgb(172, 2, 2);
+}
+
+#enter {
+  grid-column-start: span 3;
+  font-size: 1.5rem;
+  background-color: green;
+}
+
+#enter:hover {
+  background-color: rgb(0, 94, 0);
+}
+
+button.number-btn {
+  font-size: 3rem;
+  background-color: #446DF6;
+}
+
+.number-btn:hover {
+  background-color: #2e4cad
+}
+
+#problem-and-input {
+  display: grid;
+  max-width: 100%;
+  grid-template-rows: 33.3%;
+  gap: 33.3%;
+  color: white;
+}
+
+#problem-panel {
+  position: relative;
+  display: flex;
+  background-color: #0A1247;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: solid 3px white;
+  box-sizing: border-box;
+}
+
+#input-panel {
+  position: relative;
+  background-color: #446DF6;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  text-align: end;
+  width: 100%;
+  font-size: 7rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+#quit {
+  grid-column: 2;
+  width: 30%;
+  justify-self: end;
+  background-color: red;
+  font-size: 2rem;
+}
+
+@media screen and (orientation: portrait) {
+  #game-container {
+    width: 95%;
+    grid-template-columns: 1fr;
+    grid-template-areas : "a"
+                          "b"
+                          "c";
+  }
+
+  #problem-and-input {
+    gap: 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-area: a;
+  }
+
+  #problem-panel {
+    height: 12rem;
+  }
+
+  #input-panel {
+    height: 12rem;
+    justify-content: center;
+  }
+
+  #button-pad {
+    grid-area: b;
+    grid-template: repeat(5, 18rem) / repeat(3, 18rem);
+    justify-self: center;
+  }
+
+  #button-pad button {
+    font-size: 10rem;
+  }
+
+  #quit {
+    grid-area: c;
+    height: 14rem;
+    font-size: 7rem;
+    width: 40%;
+    margin-top: 2rem;
+  }
+
+  /* For iPad */
+  @media (min-aspect-ratio: 3/4) {
+    #button-pad {
+      grid-area: b;
+      grid-template: repeat(5, 14rem) / repeat(3, 14rem);
+      justify-self: center;
+    }
+  
+    #button-pad button {
+      font-size: 8rem;
+    }
+  }
+}
