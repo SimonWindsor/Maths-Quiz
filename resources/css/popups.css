@@ -12,6 +12,11 @@
   text-align: center;
 }
 
+/* Prevents media queries from showing the same selector when credits are open */
+.credits-open {
+  display: none;
+}
+
 #game-mode {
   grid-area: gm;
 }
@@ -146,7 +151,7 @@ a:hover,
                          "gm dm"
                          "bt bt";
   }
-  
+
   #game-mode,
   #difficulty-mode {
     display: grid;
@@ -170,6 +175,11 @@ a:hover,
     font-size: 7.5rem;
   }
 
+  /* Prevents media queries from showing the game selector when credits are open */
+  .credits-open {
+    opacity: 0;
+  }
+
   #results-container {
     height: 70%;
     display: flex;
@@ -191,5 +201,10 @@ a:hover,
   #score {
     font-size: 20rem;
     align-self: center;
+  }
+
+  /* Reverts credits height to normal size in portrait mode */
+  #credits{
+    height: auto;
   }
 }
