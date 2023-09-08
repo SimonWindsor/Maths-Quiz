@@ -55,12 +55,14 @@ const quitButton = document.getElementById('quit');
 document.getElementById('open-credits').addEventListener('click', () => {
   document.getElementById('credits').hidden = false;
   document.querySelector('footer').style.display = 'none';
-  gameSelector.classList.add('credits-open');
+  gameSelector.style.opacity = 0;
+  goButton.disabled = true;
 });
 document.getElementById('close-credits').addEventListener('click', () => {
   document.getElementById('credits').hidden = true;
   document.querySelector('footer').style.display = 'flex';
-  gameSelector.classList.remove('credits-open');
+  gameSelector.style.opacity = 100;
+  goButton.disabled = false;
 });
 
 // For to enable/disable difficulty selection depending on slected game mode

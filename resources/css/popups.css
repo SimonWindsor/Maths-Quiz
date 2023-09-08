@@ -12,11 +12,6 @@
   text-align: center;
 }
 
-/* Prevents media queries from showing the same selector when credits are open */
-.credits-open {
-  display: none;
-}
-
 #game-mode {
   grid-area: gm;
 }
@@ -173,11 +168,6 @@ a:hover,
     width: 50%;
     height: 60%;
     font-size: 7.5rem;
-  }
-
-  /* Prevents media queries from showing the game selector when credits are open */
-  .credits-open {
-    opacity: 0;
   }
 
   #results-container {

@@ -131,6 +131,7 @@ button.number-btn {
   }
 
   #progress-bar {
+    margin-top: 1rem;
     grid-area: c;
   }
 
