@@ -204,7 +204,7 @@ function createProblem() {
   while(alreadyAsked) {
     if(!friendsOfTen) {
       firstNumber = Math.floor(Math.random() * (maxNumber + 1 - minNumber) + minNumber);
-      secondNumber = Math.floor(Math.random() * (maxNumber + 1));
+      secondNumber = Math.floor(Math.random() * (maxNumber + 1 - minNumber) + minNumber);
     }
     if(plus) {
       mathProblem = `${firstNumber} + ${secondNumber}`;
