@@ -83,13 +83,26 @@ button.number-btn {
   font-size: 2rem;
 }
 
+#progress-bar {
+  display: flex;
+  width: 100%;
+  height: 1rem;
+  grid-column-start: span 2;
+}
+
+.progress-segment {
+  width: 10%;
+  background-color: red;
+}
+
 @media screen and (orientation: portrait) {
   #game-container {
     width: 95%;
     grid-template-columns: 1fr;
     grid-template-areas : "a"
                           "b"
-                          "c";
+                          "c"
+                          "d";
   }
 
   #problem-and-input {
@@ -117,8 +130,12 @@ button.number-btn {
     font-size: 10rem;
   }
 
-  #quit {
+  #progress-bar {
     grid-area: c;
+  }
+
+  #quit {
+    grid-area: d;
     height: 14rem;
     font-size: 7rem;
     width: 40%;

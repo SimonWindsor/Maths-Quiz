@@ -48,6 +48,7 @@ const enterButton = document.getElementById('enter');
 const clearButton = document.getElementById('clear');
 const problemPanel = document.getElementById('problem');
 const inputPanel = document.getElementById('input');
+const progressBar = document.getElementsByClassName('progress-segment');
 const quitButton = document.getElementById('quit');
 
 // Open and close credits popup
@@ -194,6 +195,7 @@ function createGame() {
 
 // Creates a maths question to be displayed
 function createProblem() {
+  updateProgressBar();
   totalQuestions++;
   let alreadyAsked = true;
   // Check question has not already been asked
@@ -268,6 +270,12 @@ function checkAnswer() {
     errorSound.play();
 }
 
+// Colours the progress bar accordingly with totalQuestions
+function updateProgressBar() {
+  for(let i = 0; i <= totalQuestions; i++)
+    progressBar[i].style.backgroundColor = 'green';
+}
+
 // Displays game results after game
 function showResults() {
   gameContainer.style.visibility = 'hidden';
@@ -313,6 +321,9 @@ function restart() {
   inputPanel.innerHTML = '';
   answerInput = '';
   uncheckAll();
+  // Reset progress bar
+  for(let i = 0; i < 10; i++)
+    progressBar[i].style.backgroundColor = 'red';
 }
 
 // To uncheck all radio buttons. This is called upon load also
