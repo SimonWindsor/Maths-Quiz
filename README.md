@@ -46,6 +46,12 @@
 - Responsive design adapts to different screen sizes and orientations.
 - ARIA roles and attributes used to enhance accessibility for screen readers.
 
+## What was Learnt During Production
+This was my first independent project, which I undertook with perhaps a somewhat novice level of knowledge at the time. I feel that knowledge however, was utilised well. Much focus in producing this maths game was adaptability to multiple devices. This proved to be of considerable challenge. This was perhaps Adding sufficient accessibility features to this game was also a challenge, and will perhaps be modified futher in future.
+
+## Potential Future Developments
+While I focussed only on formal abstract mathematical notation- where symbolic numbers and operational symbols were used, I would consider focussing also on concrete number representation (eg. 4 apples put together with 6 apples). This would be to reinforce the relationship between concrete and symbolic representation of numbers. I would also consider expanding the target demograpic to older and younger children than the 5 - 7 age range. I would like to encompass more operations (eg. multiplication and division) as well as features to give users more freedom in determining range of number sizes (eg. 1 t0 10 or 1 to 1000) or even negative numbers or fractions. A more diverse set of game modes would likely achieve more.
+
 ## Screenshots
 
 ![Game selection menu](./resources/images/screenshots/gamemenu.png)
