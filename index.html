@@ -35,7 +35,7 @@
       </div>
 
       <!-- For results after a game -->
-      <div id="results-container" class="popup">
+      <div id="results-container" class="popup" aria-label="Results">
         <div id="results-display">
           <div id="results"><!-- Results go here -->
             <div class="question"></div>
@@ -85,8 +85,8 @@
         </div>
         <!-- For displaying maths problem and user input -->
         <div id="problem-and-input">
-          <div id="problem-panel"><span id="problem"><!-- Where maths problem is displayed --></span></div>
-          <div id="input-panel"><span id="input"><!-- Where number input is displayed --></span></div>
+          <div id="problem-panel"><span id="problem" aria-label="Problem Panel"><!-- Where maths problem is displayed --></span></div>
+          <div id="input-panel"><span id="input" aria-label="Answer Panel"><!-- Where number input is displayed --></span></div>
         </div>
         <!-- Displays progress through game. Colours each segment green per question -->
         <div id="progress-bar">
@@ -106,7 +106,7 @@
       </div>
     </main>
     <footer>
-      <span>S.N.W 2023</span><span id="open-credits" role="button">CREDITS</span>
+      <span>S.N.W 2023 - 2024</span><span id="open-credits" role="button">CREDITS</span>
     </footer>
     <script src="./resources/js/game.js"></script>
   </body>

@@ -298,9 +298,9 @@ function showResults() {
       clearInterval(ping);
     } else {
       if(answerChecker[i])
-        questions[i].innerHTML = '<img src="resources/images/correctemoji.png" />';
+        questions[i].innerHTML = '<img src="resources/images/correctemoji.png" alt="Correct answer emoji" />';
       else
-        questions[i].innerHTML = '<img src="resources/images/incorrectemoji.png" />';
+        questions[i].innerHTML = '<img src="resources/images/incorrectemoji.png" alt="Incorrect answer emoji" />';
     }
     i++;
   }
