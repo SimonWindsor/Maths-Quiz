@@ -16,7 +16,7 @@
 - **Game Modes**: Choose from three different game modes: addition, subtraction, and friends of 10.
 - **Difficulty Levels**: Each mode includes three difficulty levels to cater to different learning stages.
 - **Interactive Interface**: Designed with touch-friendly number buttons for ease of use on both desktop and mobile devices.
-- **Keyboard Support**: Users can input answers using the keyboard (numbers, delete, backspace and enter key) in addition to clicking/touching buttons.
+- **Keyboard Support**: Users can input answers using the keyboard (numbers, delete, backspace and enter key) in addition to clicking or touching buttons.
 - **Progress Tracking**: The game keeps track of questions using a progress bar to show users how far through a game they are.
 - **Results Display**: At the end of each game session, results are displayed with animated emoticons (smiley for correct answers, funny face for incorrect answers).
 - **Exit Option**: Users can exit the game at any time using the provided exit button.
@@ -25,7 +25,7 @@
 
 - **Addition**: Generates random addition problems within a specified range, ensuring positive results.
 - **Subtraction**: Generates random subtraction problems, ensuring no negative-number answers.
-- **Friends of 10**: Presents number prblems where the sum is 10, and the user needs to find the number corresponding with the number provided to add to 10. This reinforces basic arithmetic relationships.
+- **Friends of 10**: Presents number problems where the sum is 10, and the user needs to find the number corresponding with the number provided to add to 10. This reinforces basic arithmetic relationships.
 
 ## User Interface Details
 
@@ -38,7 +38,7 @@
 - Answers are validated with exact matching, ensuring precise correctness.
 - Random number generation is controlled to provide a mix of difficulty levels and problem types.
 - Game keeps track of generated maths probelms that are given to ensure a specific maths probelm does not appear more than once per game.
-- Additional features include a timeout mechanism to animated results are a game.
+- Additional features include a timing mechanism to animated results at end of game.
 
 ## Accessibility and Responsiveness
 
@@ -48,8 +48,13 @@
 
 ## Screenshots
 
-![Screenshot 1](/screenshots/screenshot1.png)
-![Screenshot 2](/screenshots/screenshot2.png)
+![Game selection menu](./resources/images/screenshots/gamemenu.png)
+
+![Game on desktop PC](./resources/images/screenshots/game1.png)
+
+![Game on mobile device](./resources/images/screenshots/game2.png)
+
+![Game results screen](./resources/images/screenshots/gameresults.png)
 
 ## Getting Started
 
