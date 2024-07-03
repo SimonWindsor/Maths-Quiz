@@ -19,7 +19,7 @@
 - **Keyboard Support**: Users can input answers using the keyboard (numbers, delete, backspace and enter key) in addition to clicking or touching buttons.
 - **Progress Tracking**: The game keeps track of questions using a progress bar to show users how far through a game they are.
 - **Results Display**: At the end of each game session, results are displayed with animated emoticons (smiley for correct answers, funny face for incorrect answers).
-- **Exit Option**: Users can exit the game at any time using the provided exit button.
+- **Exit Option**: Users can exit the game at any time using the provided "go back" button.
 
 ## Game Modes
 
