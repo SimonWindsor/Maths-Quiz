@@ -1,20 +1,15 @@
 // Variables for numbers, answers, answer checking and problem logging
-let firstNumber;
-let secondNumber;
-let correctAnswer;
-let minNumber;
-let maxNumber;
+let firstNumber, secondNumber, correctAnswer;
+let minNumber, maxNumber;
 let mathProblem = '';
 let answerInput = '';
-let totalQuestions;
-let numCorrect;
+let totalQuestions = 0;
+let numCorrect = 0;
 let answerChecker = [];
 let questionLog = [];
 
 // Variables for determining game mode
-let plus = false;
-let takeAway = false;
-let friendsOfTen = false;
+let plus, takeAway, friendsOfTen;
 
 // Audio variable sfor use during game
 const correctSound = new Audio("resources/audio/powerup.mp3");
@@ -51,19 +46,16 @@ const inputPanel = document.getElementById('input');
 const progressBar = document.getElementsByClassName('progress-segment');
 const quitButton = document.getElementById('quit');
 
-// Open and close credits popup
-document.getElementById('open-credits').addEventListener('click', () => {
-  document.getElementById('credits').hidden = false;
-  document.querySelector('footer').style.display = 'none';
-  gameSelector.style.opacity = 0;
-  goButton.disabled = true;
-});
-document.getElementById('close-credits').addEventListener('click', () => {
-  document.getElementById('credits').hidden = true;
-  document.querySelector('footer').style.display = 'flex';
-  gameSelector.style.opacity = 100;
-  goButton.disabled = false;
-});
+// Open/close credits popup
+const toggleCredits = (show) => {
+  document.getElementById('credits').hidden = !show;
+  document.querySelector('footer').style.display = show ? 'none' : 'flex';
+  gameSelector.style.opacity = show ? 0 : 100;
+  goButton.disabled = show;
+};
+
+document.getElementById('open-credits').addEventListener('click', () => toggleCredits(true));
+document.getElementById('close-credits').addEventListener('click', () => toggleCredits(false));
 
 // For to enable/disable difficulty selection depending on slected game mode
 for(let i = 0; i < gameRadios.length; i++) {
@@ -87,6 +79,7 @@ quitButton.addEventListener('click', restart);
 or in results or game selector screen, key events will change.*/
 document.addEventListener('keydown', event => {
   const key = event.key;
+  const numberArr = ['0','1','2','3','4','5','6','7','8','9'];
 
   /* Checks if game container is visible so the following logic ONLY happens
   during game. Other wise, if game selector is visible the ENTER key will act as
@@ -97,16 +90,7 @@ document.addEventListener('keydown', event => {
       checkAnswer();
     } else if(key === 'Delete' || key === 'Backspace')
       clearInput();
-    else if (key === '1'
-            || key === '2'
-            || key === '3'
-            || key === '4'
-            || key === '5'
-            || key === '6'
-            || key === '7'
-            || key === '8'
-            || key === '9'
-            || key === '0')
+      else if (numberArr.includes(key))
       numberInput(key);
   } else {
     if(key === 'Enter') {
@@ -159,21 +143,17 @@ function createGame() {
   numCorrect = 0;
   answerChecker = [];
   questionLog = [];
+  plus = false;
+  takeAway = false;
+  friendsOfTen = false;
+  problemPanel.style.fontSize = '6rem';
 
-  // Determine game mode, font-size needs to be adjusted
+  // Determine game mode, font-size needs to be adjusted if friends of ten
   if(plusSelect.checked) {
     plus = true;
-    takeAway = false;
-    friendsOfTen = false;
-    problemPanel.style.fontSize = '6rem';
   } else if(takeAwaySelect.checked) {
-    plus = false;
     takeAway = true;
-    friendsOfTen = false;
-    problemPanel.style.fontSize = '6rem';
   } else if(friendsOfTenSelect.checked) {
-    plus = false;
-    takeAway = false;
     friendsOfTen = true;
     problemPanel.style.fontSize = '5rem';
   }
@@ -182,12 +162,10 @@ function createGame() {
   if(easySelect.checked) {
     minNumber = 0;
     maxNumber = 5;
-  }
-  else if(mediumSelect.checked){ 
+  } else if(mediumSelect.checked){ 
     minNumber = 5;
     maxNumber = 10;
-  }
-  else if(hardSelect.checked) {
+  } else if(hardSelect.checked) {
     minNumber = 10;
     maxNumber = 15;
   }
